@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block context %}
+<head>
+
+</head>
+
+<body>
+    <h1> ToDo List </h1>
+    <br>
+    <br>
+
+    {%for dotitle in dotitles %}
+    <div class="box-body">
+
+        <ul class="todo-list ui-sortable">
+            <li>
+                <span class="handle ui-sortable-handle">
+                    <i class="fa fa-ellipsis-v"></i>
+                    <i class="fa fa-ellipsis-v"></i>
+                </span>
+                <span class="text"><a href = "{% url 'detail' dotitle.id %}" >{{dotitle.title}}</a></span>
+                <small class="label label-danger"><i class="fa fa-clock-o"></i> {{dotitle.pub_date}}</small>
+                <div class="tools">
+                    {#<a href = "{% url 'update' todolist.id %}"><i class="fa fa-edit"></i></a> #}
+                    {#<a href = "{% url 'delete' todolist.id %}"><i class="fa fa-trash-o"></i></a>#}
+                </div>
+            </li>
+        </ul>
+    </div>
+    {% endfor %}
+</body>
+
+{% endblock %}
